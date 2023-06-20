@@ -20,6 +20,10 @@ cd SinDDM
 ```
 python main.py --scope <training_image> --mode train --dataset_folder ./datasets/<training_image>/ --image_name <training_image.png> --results_folder ./results/
 ```
+For example, you can run
+```
+python main.py --scope field_poppies --mode train --dataset_folder ./datasets/field_poppies/ --image_name field_poppies.png --results_folder ./results/
+```
 
 # Original README.md
 
