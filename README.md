@@ -1,7 +1,7 @@
 # Implementation
 
 ## What's new
-We adopt DDPM-IP by introducing a parameter `new_noise`. The only change we make is in [model.py](https://github.com/KevinWang676/SinDDM/blob/6285d0b02ea57aff0aea1502528a717fd348e440/SinDDM/models.py#L590):
+We adopt DDPM-IP by introducing a parameter `new_noise`. The only change we make is in model.py
 ```
 new_noise = noise + 0.1 * torch.randn_like(noise)
 x_noisy = self.q_sample(x_start=x_start, t=t, noise=new_noise)
