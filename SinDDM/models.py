@@ -578,16 +578,16 @@ class MultiScaleGaussianDiffusion(nn.Module):
     def p_losses(self, x_start, t, s, noise=None, x_orig=None):
         b, c, h, w = x_start.shape
         noise = default(noise, lambda: torch.randn_like(x_start))
+        new_noise = noise + 0.1 * torch.randn_like(noise) # adopt DDPM-IP
 
         if int(s) > 0:
             cur_gammas = self.gammas[s - 1].reshape(-1)
             x_mix = extract(cur_gammas, t, x_start.shape) * x_start + \
                     (1 - extract(cur_gammas, t, x_start.shape)) * x_orig  # mix blurred and orig
-            x_noisy = self.q_sample(x_start=x_mix, t=t, noise=noise)  # add noise
+            x_noisy = self.q_sample(x_start=x_mix, t=t, noise=new_noise)  # introduce new_noise
             x_recon = self.denoise_fn(x_noisy, t, s)
 
         else:
-            new_noise = noise + 0.1 * torch.randn_like(noise) # adopt DDPM-IP
             x_noisy = self.q_sample(x_start=x_start, t=t, noise=new_noise) # introduce new_noise
             x_recon = self.denoise_fn(x_noisy, t, s)
 
