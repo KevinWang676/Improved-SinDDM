@@ -587,7 +587,7 @@ class MultiScaleGaussianDiffusion(nn.Module):
             x_recon = self.denoise_fn(x_noisy, t, s)
 
         else:
-            new_noise = noise + 0.1 * th.randn_like(noise) # adopt DDPM-IP
+            new_noise = noise + 0.1 * torch.randn_like(noise) # adopt DDPM-IP
             x_noisy = self.q_sample(x_start=x_start, t=t, noise=new_noise) # introduce new_noise
             x_recon = self.denoise_fn(x_noisy, t, s)
 
