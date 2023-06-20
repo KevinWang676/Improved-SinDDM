@@ -1,3 +1,21 @@
+# Implementation
+
+## Preparation
+(1) Run
+```
+git clone https://github.com/fallenshock/SinDDM.git
+cd SinDDM
+```
+(2) Run `python -m pip install -r requirements.txt`
+
+## Training
+(3) Run
+```
+python main.py --scope <training_image> --mode train --dataset_folder ./datasets/<training_image>/ --image_name <training_image.png> --results_folder ./results/
+```
+
+# Original README.md
+
 [![Single_Image_Generative_Model](https://img.shields.io/badge/single%20image-generative%20model-yellow)](https://github.com/topics/single-image-generation)
 [![Python 3.8](https://img.shields.io/badge/python-3.812+-blue)](https://www.python.org/downloads/release/python-38/)
 [![torch](https://img.shields.io/badge/torch-1.13.0+-green)](https://pytorch.org/)
