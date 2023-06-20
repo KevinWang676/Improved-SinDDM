@@ -1,9 +1,16 @@
 # Implementation
 
+## What's new
+We adopt DDPM-IP by introducing a parameter `new_noise`. The only change we make is in [model.py](https://github.com/fallenshock/SinDDM/blob/ecc620c7fe93b902790560e8adc24efbd1389c0a/SinDDM/models.py#L590):
+```
+new_noise = noise + 0.1 * th.randn_like(noise)
+x_noisy = self.q_sample(x_start=x_start, t=t, noise=new_noise)
+```
+
 ## Preparation
 (1) Run
 ```
-git clone https://github.com/fallenshock/SinDDM.git
+git clone https://github.com/KevinWang676/SinDDM.git
 cd SinDDM
 ```
 (2) Run `python -m pip install -r requirements.txt`
