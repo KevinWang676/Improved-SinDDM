@@ -26,6 +26,16 @@ For example, you can run
 python main.py --scope field_poppies --mode train --dataset_folder ./datasets/field_poppies/ --image_name field_poppies.png --results_folder ./results/
 ```
 
+## Sampling
+(4) Run
+```
+python main.py --scope <training_image> --mode sample --dataset_folder ./datasets/<training_image>/ --image_name <training_image.png> --results_folder ./results/ --load_milestone 12
+```
+For example, you can run
+```
+python main.py --scope field_poppies --mode sample --dataset_folder ./datasets/field_poppies/ --image_name field_poppies.png --results_folder ./results/ --load_milestone 12
+```
+
 # Original README.md
 
 [![Single_Image_Generative_Model](https://img.shields.io/badge/single%20image-generative%20model-yellow)](https://github.com/topics/single-image-generation)
