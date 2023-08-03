@@ -578,7 +578,7 @@ class MultiScaleGaussianDiffusion(nn.Module):
     def p_losses(self, x_start, t, s, noise=None, x_orig=None):
         b, c, h, w = x_start.shape
         noise = default(noise, lambda: torch.randn_like(x_start))
-        new_noise = noise + 0.015 * torch.randn_like(noise) # adopt DDPM-IP
+        new_noise = noise + 0.02 * torch.randn_like(noise) # adopt DDPM-IP
 
         if int(s) > 0:
             cur_gammas = self.gammas[s - 1].reshape(-1)
