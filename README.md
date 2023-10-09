@@ -11,8 +11,8 @@ x_noisy = self.q_sample(x_start=x_start, t=t, noise=new_noise)
 ## Preparation
 (1) Run
 ```
-git clone https://github.com/KevinWang676/SinDDM.git
-cd SinDDM
+git clone https://github.com/KevinWang676/Improved-SinDDM.git
+cd Improved-SinDDM
 ```
 (2) Run `python -m pip install -r requirements.txt`
 
